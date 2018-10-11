@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <!-- 引入 echarts.js -->
+    <script src="echarts.js"></script>
+</head>
+<body>
+	<style>
+	body {
+		height:100%;
+		width: 100%;
+		margin: 0;
+		}
+	</style>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+	<div id="main" style="width:357px;height:346px;background-color:#F8F8F8;"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'),);
+
+        // 指定图表的配置项和数据
+
+option = {
+	color: ['#4ea397', '#22c3aa', '#7bd9a5'],
+    title: {
+        text: '血氧/脉率变化趋势（平均值）',
+    },
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'cross',
+            crossStyle: {
+                color: '#999'
+            }
+        }
+    },
+    legend: {
+		bottom: '0%',
+        data:['血氧','脉率'],
+    },
+    grid: {
+        left: '5%',
+        right: '3%',
+        top: '16%',
+        bottom: '7%',
+        containLabel: true
+    },
+    xAxis: [
+        {
+            type: 'category',
+            data: ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'],
+            axisPointer: {
+                type: 'shadow'
+            }
+        }
+    ],
+    yAxis: [
+        {
+            type: 'value',
+            name: '血氧（％）',
+            min: 86,
+            max: 100,
+            interval: 2,
+            axisLabel: {
+                formatter: '{value}'
+            }
+        },
+        {
+            type: 'value',
+            name: '脉率（bpm）',
+            min: 40,
+            max: 110,
+            interval: 10,
+            axisLabel: {
+                formatter: '{value}'
+            }
+        }
+    ],
+    series: [
+        {
+            name:'血氧',
+            type:'line',
+            data:[94.3, 95.2, 94.9, 94.3, 94.9, 95, 94.1, 95.4, 94.7, 95.4, 95.2, 94.4]
+        },
+        {
+            name:'脉率',
+            type:'line',
+            yAxisIndex: 1,
+            data:[76, 66, 69, 72, 80, 68, 74, 75, 78, 66, 65, 69]
+        }
+    ]
+};
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+</body>
+</html>
