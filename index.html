@@ -15,7 +15,7 @@
 		}
 	</style>
     <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-	<div id="main" style="width:357px;height:346px;background-color:#F8F8F8;"></div>
+	<div id="main" style="width:357px;height:346px;background-color:#494A5F;"></div>
     <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
         var myChart = echarts.init(document.getElementById('main'),);
@@ -26,6 +26,9 @@ option = {
 	color: ['#1ABC9C', '#EDBC34', '#049DFF'],
     title: {
         text: '血氧/脉率变化趋势（平均值）',
+		textStyle: {
+		color: '#FFF'
+		},
 		left: 'center'
     },
     tooltip: {
@@ -34,10 +37,16 @@ option = {
             type: 'cross',
             crossStyle: {
                 color: '#999'
+            },
+			label: {
+            backgroundColor: '#999'
             }
         }
     },
     legend: {
+		textStyle: {
+		color: '#FFF'
+		},
 		bottom: '0%',
         data:['血氧','脉率'],
     },
@@ -54,6 +63,18 @@ option = {
             data: ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'],
             axisPointer: {
                 type: 'shadow'
+            },
+			axisLabel: {
+                    textStyle: {
+                        color: '#fff'
+                    }
+            },
+            axisLine: {
+                    lineStyle: {
+                        type: 'solid',
+                        color: '#fff',
+                        width:'2'
+                    }
             }
         }
     ],
@@ -65,7 +86,17 @@ option = {
             max: 100,
             interval: 2,
             axisLabel: {
-                formatter: '{value}'
+                formatter: '{value}',
+				textStyle: {
+                        color: '#fff'
+                    }
+            },
+			axisLine: {
+                    lineStyle: {
+                        type: 'solid',
+                        color: '#fff',
+                        width:'2'
+                    }
             }
         },
         {
@@ -75,7 +106,17 @@ option = {
             max: 110,
             interval: 10,
             axisLabel: {
-                formatter: '{value}'
+                formatter: '{value}',
+				textStyle: {
+                        color: '#fff'
+                    }
+            },
+			axisLine: {
+                    lineStyle: {
+                        type: 'solid',
+                        color: '#fff',
+                        width:'2'
+                    }
             }
         }
     ],
