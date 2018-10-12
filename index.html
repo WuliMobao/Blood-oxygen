@@ -49,6 +49,9 @@ option = {
 		},
 		bottom: '0%',
         data:['血氧','脉率'],
+		selected: {
+		'血氧': true, '脉率': false
+		}
     },
     grid: {
         left: '5%',
@@ -124,7 +127,26 @@ option = {
         {
             name:'血氧',
             type:'line',
-            data:[94.3, 95.2, 94.9, 94.3, 94.9, 95, 94.1, 95.4, 94.7, 95.4, 95.2, 94.4]
+            data:[94.3, 95.2, 94.9, 94.3, 94.9, 95, 94.1, 95.4, 94.7, 95.4, 95.2, 94.4],
+			markArea: {
+                itemStyle: {
+                    color: 'rgb(225, 0, 0,0.4)'
+                },
+                label: {
+                    color: '#FFF',
+                    fontWeight: 'bolder',
+					fontSize: '12',
+                    position: 'insideLeft',
+                },
+                data: [ [{
+                    name: '标\n准\n血\n氧\n范\n围',
+                    yAxis: '94'
+                }, {
+                    yAxis: '100'
+                }], 
+                ],
+				silent: true
+            }
         },
         {
             name:'脉率',
